@@ -265,7 +265,7 @@ a {
 .hero-dark h1 {
   max-width: 820px;
   color: #ffffff;
-  font-size: clamp(42px, 6vw, 72px);
+  font-size: clamp(34px, 4.8vw, 56px);
   text-shadow: 3px 3px 0 rgba(37, 99, 235, 0.55), 6px 6px 0 rgba(236, 72, 153, 0.2);
 }
 
