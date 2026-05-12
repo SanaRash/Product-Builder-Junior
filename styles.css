@@ -403,7 +403,7 @@ a {
 .hero-profile h1 {
   max-width: 820px;
   color: var(--text);
-  font-size: clamp(34px, 4.8vw, 56px);
+  font-size: clamp(30px, 4vw, 46px);
 }
 
 .hero-profile .hero-text {
@@ -1291,7 +1291,7 @@ body.modal-lock {
   }
 
   .hero-profile h1 {
-    font-size: clamp(34px, 11vw, 50px);
+    font-size: clamp(30px, 4vw, 46px);
   }
 
   .hero-dark .hero-panel {
@@ -1382,7 +1382,7 @@ body.modal-lock {
   }
 
   .hero-profile h1 {
-    font-size: 32px;
+    font-size: 22px;
   }
 
   .hero-dark .hero-text,
