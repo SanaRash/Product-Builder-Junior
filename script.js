@@ -1,203 +1,22 @@
-const navToggle = document.querySelector(".nav-toggle");
-const siteNav = document.querySelector(".site-nav");
-const filterButtons = document.querySelectorAll(".filter");
-const projectCards = document.querySelectorAll(".project-card");
-const modal = document.querySelector("#project-modal");
-const modalVisual = document.querySelector("#modal-visual");
-const modalCategory = document.querySelector("#modal-category");
-const modalStatus = document.querySelector("#modal-status");
-const modalTitle = document.querySelector("#modal-title");
-const modalDescription = document.querySelector("#modal-description");
-const modalProblem = document.querySelector("#modal-problem");
-const modalSolution = document.querySelector("#modal-solution");
-const modalImpact = document.querySelector("#modal-impact");
-const modalTools = document.querySelector("#modal-tools");
-const modalGallery = document.querySelector("#modal-gallery");
+const navToggle=document.querySelector('.nav-toggle');const siteNav=document.querySelector('.site-nav');
+navToggle?.addEventListener('click',()=>{const open=siteNav.classList.toggle('open');navToggle.setAttribute('aria-expanded',String(open))});
+siteNav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{siteNav.classList.remove('open');navToggle?.setAttribute('aria-expanded','false')}));
 
-const projectDetails = {
-  "rx-contracts": {
-    title: "RX Contracts",
-    category: "Outil interne · Gestion documentaire · Alertes",
-    status: "Projet réalisé",
-    visual: "linear-gradient(135deg, #2563eb, #06b6d4)",
-    description: "Plateforme interne permettant de centraliser contrats, documents, prestataires, sites, litiges, sinistres, impayés et alertes dans une organisation multi-sites.",
-    problem: "Les équipes avaient besoin d'un outil centralisé pour suivre les contrats, éviter les oublis d'échéances, gérer les documents et structurer les dossiers.",
-    solution: "Création d'une plateforme avec dashboard, filtres, gestion documentaire et alertes selon les dates importantes.",
-    impact: "Meilleur suivi administratif, réduction des oublis, gain de temps et centralisation de l'information.",
-    tools: ["Django", "Python", "Dashboard", "Alertes", "Gestion documentaire"],
-    gallery: [
-      { type: "image", src: "images/rx-contracts-1.png", alt: "Dashboard RX Contracts" },
-      { type: "image", src: "images/rx-contracts-2.png", alt: "Administration RX Contracts" },
-      { type: "image", src: "images/rx-contracts-3.png", alt: "Centre d'alertes RX Contracts" }
-    ]
-  },
-  "rib-generator": {
-    title: "RIB Generator",
-    category: "Automatisation · Comptabilité · Productivité",
-    status: "Projet réalisé",
-    visual: "linear-gradient(135deg, #059669, #14b8a6)",
-    description: "Application desktop qui automatise la génération de fichiers bancaires structurés au format attendu par un logiciel comptable.",
-    problem: "La génération manuelle pouvait entraîner des erreurs de saisie, une perte de temps et des fichiers non conformes.",
-    solution: "Création d'une interface simple pour saisir les informations bancaires et générer automatiquement un fichier TXT conforme.",
-    impact: "Processus plus fiable, réduction des erreurs et gain de temps pour les utilisateurs non techniques.",
-    tools: ["Python", "CustomTkinter", "TXT", "Automatisation locale"],
-    gallery: [
-      { type: "image", src: "images/rib-generator.png", alt: "Interface RIB Generator" }
-    ]
-  },
-  "wordpress-seo": {
-    title: "Sites WordPress & SEO",
-    category: "Web · SEO · Conversion",
-    status: "Projets clients réalisés",
-    visual: "linear-gradient(135deg, #f59e0b, #ef4444)",
-    description: "Création et optimisation de sites WordPress professionnels avec une approche SEO, UX et conversion.",
-    problem: "Beaucoup d'entreprises avaient un site peu structuré, peu visible sur Google ou insuffisamment clair pour convertir les visiteurs.",
-    solution: "Création de pages, structuration des contenus, optimisation SEO on-page, formulaires, responsive et suivi Search Console.",
-    impact: "Image professionnelle renforcée, meilleure visibilité Google et meilleure prise de contact.",
-    tools: ["WordPress", "Elementor", "SEO", "Analytics", "Search Console"],
-    gallery: [
-      { type: "link", href: "http://realestatecaretaking.com/", label: "realestatecaretaking.com" },
-      { type: "link", href: "http://ferlam-compensateurs.com/", label: "ferlam-compensateurs.com" },
-      { type: "link", href: "http://altra-healthcare.com/", label: "altra-healthcare.com" },
-      { type: "link", href: "http://james-bun.com/", label: "james-bun.com" },
-      { type: "link", href: "http://laservisionbelle-epine.com/", label: "laservisionbelle-epine.com" },
-      { type: "link", href: "http://chrelationcenter.com/", label: "chrelationcenter.com" },
-      { type: "link", href: "http://diet-fine.fr/", label: "diet-fine.fr" },
-      { type: "link", href: "http://centremedicalbelleepine.fr/", label: "centremedicalbelleepine.fr" },
-      { type: "link", href: "http://cliniqueoseraie.fr/", label: "cliniqueoseraie.fr" },
-      { type: "link", href: "http://centreosny.fr/", label: "centreosny.fr" },
-      { type: "link", href: "http://laser-beaute-medical.com/", label: "laser-beaute-medical.com" },
-      { type: "link", href: "http://cabinetgameiro.fr/", label: "cabinetgameiro.fr" },
-      { type: "link", href: "http://pec.altra-phone.com/", label: "pec.altra-phone.com" },
-      { type: "link", href: "http://hudrrumet-alu.tn/", label: "hudrrumet-alu.tn" },
-      { type: "link", href: "http://altra-phone.com/", label: "altra-phone.com" }
-    ]
-  },
-  "assistant-ia": {
-    title: "Assistant IA Automation",
-    category: "IA · Workflow · Traitement des demandes",
-    status: "Prototype",
-    visual: "linear-gradient(135deg, #7c3aed, #db2777)",
-    description: "Workflow IA pour analyser, classer et automatiser le traitement des emails ou formulaires entrants.",
-    problem: "Les demandes entrantes prennent du temps à lire, trier, prioriser et suivre. Certaines informations peuvent être oubliées.",
-    solution: "Make déclenche l'analyse IA, extrait les informations, classe la demande, crée une fiche dans Airtable/Notion et génère une réponse brouillon.",
-    impact: "Meilleure réactivité, moins d'oublis, centralisation des demandes et suivi client plus structuré.",
-    tools: ["Make", "OpenAI", "Gmail", "Airtable", "Notion", "Slack"],
-    gallery: [
-      { type: "image", src: "images/assistant-ia-automation-1.png", alt: "Schéma Assistant IA Automation" },
-      { type: "image", src: "images/assistant-ia-automation-2.png", alt: "Workflow Make Assistant IA Automation" }
-    ]
-  },
-  "agent-seo": {
-    title: "Agent IA SEO WordPress",
-    category: "IA · SEO · WordPress",
-    status: "Prototype",
-    visual: "linear-gradient(135deg, #0f172a, #334155)",
-    description: "Agent IA conçu pour analyser les pages WordPress, détecter les optimisations SEO et préparer des brouillons optimisés.",
-    problem: "Un site WordPress peut publier du contenu sans vraie stratégie SEO : titres faibles, méta-descriptions absentes, contenu peu structuré.",
-    solution: "L'agent analyse une URL ou un article, propose titres, méta-description, structure H2/H3, mots-clés, balises ALT et maillage interne.",
-    impact: "Audits plus rapides, meilleure organisation éditoriale et amélioration progressive du trafic organique.",
-    tools: ["WordPress", "Make", "ChatGPT", "OpenAI", "Search Console", "Sheets"],
-    gallery: [
-      { type: "image", src: "images/agent-ia-seo.png", alt: "Agent IA SEO WordPress" }
-    ]
-  },
-  cegid: {
-    title: "Gestionnaire Cegid",
-    category: "Outil interne · Sécurité · Suivi",
-    status: "Prototype en cours",
-    visual: "linear-gradient(135deg, #dc2626, #f97316)",
-    description: "Outil interne pour centraliser les comptes Cegid, suivre les dates de modification et anticiper les expirations.",
-    problem: "La gestion manuelle de nombreux comptes peut créer des oublis, un manque de visibilité et des erreurs dans le suivi.",
-    solution: "Centralisation des logins, sites associés, emails de contact, dates de modification, statuts visuels et exports PDF/Excel.",
-    impact: "Meilleur suivi des accès, anticipation des renouvellements et reporting plus clair pour la direction.",
-    tools: ["Python", "Interface desktop", "Export PDF", "Export Excel", "Sécurité"],
-    gallery: [
-      { type: "image", src: "images/gestionnaire-cegid.png", alt: "Gestionnaire Cegid" }
-    ]
-  }
+document.querySelectorAll('.filter').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));button.classList.add('active');const selected=button.dataset.filter;document.querySelectorAll('.project-card').forEach(card=>card.classList.toggle('hidden',selected!=='all'&&!card.dataset.category.includes(selected)))}));
+
+const projectDetails={
+  capsa:{title:'CAPSA Paradise Land',category:'UX/UI · SEO · Menu digital · Automatisation',visual:'linear-gradient(135deg,#103b32,#176a50 55%,#d09b28)',description:"Conception de l'écosystème digital d'un parc de loisirs et espace événementiel à Gafsa.",problem:"L'offre du lieu était dispersée et manquait d'une présentation digitale claire permettant aux visiteurs de découvrir les espaces, les événements, le restaurant et les possibilités de réservation.",solution:"Définition de l'architecture, création des maquettes UI, conception d'un menu digital interactif, optimisation SEO locale, contenus marketing et scénarios d'automatisation pour les publications événementielles.",impact:"Une expérience plus cohérente, une meilleure visibilité locale et un parcours plus simple entre découverte, consultation et prise de contact.",tools:['Figma','WordPress','SEO local','UX/UI','Make','Menu digital'],gallery:[]},
+  'rx-contracts':{title:'RX Contracts',category:'Python · Django · Gestion documentaire',visual:'linear-gradient(135deg,#2367ff,#20c7d9)',description:'Plateforme interne de gestion des contrats, prestataires, sites, litiges, documents et échéances.',problem:"Les informations étaient dispersées, les échéances difficiles à suivre et les oublis pouvaient créer des risques administratifs.",solution:"Création d'un tableau de bord centralisé avec rôles, recherche, pagination, alertes automatiques, documents et suivi métier.",impact:"Centralisation de l'information, meilleur suivi des échéances et réduction des oublis.",tools:['Python','Django','SQL','Alertes','Dashboard'],gallery:['images/rx-contracts-1.png','images/rx-contracts-2.png','images/rx-contracts-3.png']},
+  'assistant-ia':{title:'Assistant IA de triage',category:'Make · OpenAI · Airtable',visual:'linear-gradient(135deg,#7c3aed,#db2777)',description:'Workflow IA pour analyser, classer et structurer automatiquement des demandes entrantes.',problem:"Le tri manuel des emails et formulaires demande du temps, crée des retards et rend le suivi irrégulier.",solution:"Un scénario Make extrait les informations, qualifie la priorité, crée une fiche de suivi et génère une réponse brouillon avec validation humaine.",impact:"Traitement plus rapide, demandes mieux structurées et diminution des oublis.",tools:['Make','OpenAI','Airtable','Notion','Google Sheets'],gallery:['images/assistant-ia-automation-1.png','images/assistant-ia-automation-2.png']},
+  'agent-seo':{title:'Agent IA SEO WordPress',category:'IA · SEO · WordPress',visual:'linear-gradient(135deg,#111827,#334155)',description:'Prototype d’agent IA qui analyse une page WordPress et propose des optimisations SEO actionnables.',problem:"Les audits manuels sont répétitifs et certaines pages sont publiées sans structure SEO complète.",solution:"Analyse des titres, métadonnées, structure Hn, contenu, maillage interne et opportunités d'amélioration, puis génération d'un plan d'action.",impact:"Audits plus rapides, recommandations standardisées et meilleure organisation éditoriale.",tools:['WordPress','OpenAI','Make','SEO','Search Console'],gallery:['images/agent-ia-seo.png']},
+  'rib-generator':{title:'RIB Generator',category:'Python · Automatisation locale',visual:'linear-gradient(135deg,#059669,#14b8a6)',description:'Application desktop pour générer automatiquement des fichiers comptables TXT conformes.',problem:"La saisie manuelle était lente et exposée aux erreurs de format.",solution:"Interface guidée, validations, nommage automatique, sauvegarde et génération du fichier final.",impact:"Gain de temps, meilleure fiabilité et utilisation simple pour des utilisateurs non techniques.",tools:['Python','CustomTkinter','TXT','Validation'],gallery:['images/rib-generator.png']},
+  airbnb:{title:'Application de réservation No-Code',category:'Bubble · Figma · UML · Base de données',visual:'linear-gradient(135deg,#ff625f,#ff9b93)',description:'Projet de conception d’une application de réservation inspirée d’Airbnb.',problem:"Concevoir en trois semaines une application réaliste, cohérente et démontrable avec plusieurs profils utilisateurs.",solution:"Définition des cas d'utilisation, modèle de données, parcours voyageur/hôte, maquettes, règles métier et MVP Bubble.",impact:"Démonstration d'une démarche produit complète, de l'analyse à la construction du prototype.",tools:['Bubble','Figma','UML','Merise','User Stories'],gallery:[]}
 };
 
-navToggle?.addEventListener("click", () => {
-  const isOpen = siteNav.classList.toggle("open");
-  navToggle.setAttribute("aria-expanded", String(isOpen));
-});
+const modal=document.querySelector('#project-modal');
+function openModal(id){const p=projectDetails[id];if(!p||!modal)return;document.querySelector('#modal-title').textContent=p.title;document.querySelector('#modal-category').textContent=p.category;document.querySelector('#modal-description').textContent=p.description;document.querySelector('#modal-problem').textContent=p.problem;document.querySelector('#modal-solution').textContent=p.solution;document.querySelector('#modal-impact').textContent=p.impact;document.querySelector('#modal-visual').style.background=p.visual;document.querySelector('#modal-tools').innerHTML=p.tools.map(x=>`<span>${x}</span>`).join('');document.querySelector('#modal-gallery').innerHTML=p.gallery.map((src,i)=>`<figure class="modal-shot"><img src="${src}" alt="${p.title} - capture ${i+1}"><figcaption>${p.title} · capture ${i+1}</figcaption></figure>`).join('');modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.classList.add('modal-lock')}
+function closeModal(){modal?.classList.remove('open');modal?.setAttribute('aria-hidden','true');document.body.classList.remove('modal-lock')}
+document.querySelectorAll('.project-more').forEach(b=>b.addEventListener('click',()=>openModal(b.dataset.project)));document.querySelectorAll('[data-close-modal]').forEach(x=>x.addEventListener('click',closeModal));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 
-siteNav?.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    siteNav.classList.remove("open");
-    navToggle?.setAttribute("aria-expanded", "false");
-  });
-});
-
-filterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const selected = button.dataset.filter;
-
-    filterButtons.forEach((item) => item.classList.remove("active"));
-    button.classList.add("active");
-
-    projectCards.forEach((card) => {
-      const categories = card.dataset.category || "";
-      const shouldShow = selected === "all" || categories.includes(selected);
-      card.classList.toggle("hidden", !shouldShow);
-    });
-  });
-});
-
-function openProjectModal(projectId) {
-  const project = projectDetails[projectId];
-
-  if (!project || !modal) return;
-
-  modalTitle.textContent = project.title;
-  modalCategory.textContent = project.category;
-  modalStatus.textContent = project.status;
-  modalDescription.textContent = project.description;
-  modalProblem.textContent = project.problem;
-  modalSolution.textContent = project.solution;
-  modalImpact.textContent = project.impact;
-  modalVisual.style.background = project.visual;
-
-  modalTools.innerHTML = project.tools.map((tool) => `<span>${tool}</span>`).join("");
-  modalGallery.innerHTML = project.gallery
-    .map((item, index) => {
-      if (item.type === "image") {
-        return `
-          <figure class="modal-shot image-shot">
-            <img src="${item.src}" alt="${item.alt}">
-            <figcaption>${item.alt}</figcaption>
-          </figure>
-        `;
-      }
-
-      return `<a class="modal-site-link" href="${item.href}" target="_blank" rel="noreferrer">${item.label}</a>`;
-    })
-    .join("");
-
-  modal.classList.add("open");
-  modal.setAttribute("aria-hidden", "false");
-  document.body.classList.add("modal-lock");
-}
-
-function closeProjectModal() {
-  if (!modal) return;
-
-  modal.classList.remove("open");
-  modal.setAttribute("aria-hidden", "true");
-  document.body.classList.remove("modal-lock");
-}
-
-document.querySelectorAll(".project-more").forEach((button) => {
-  button.addEventListener("click", () => openProjectModal(button.dataset.project));
-});
-
-document.querySelectorAll("[data-close-modal]").forEach((item) => {
-  item.addEventListener("click", closeProjectModal);
-});
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    closeProjectModal();
-  }
-});
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+document.querySelector('#year').textContent=new Date().getFullYear();
