@@ -1,201 +1,207 @@
-Créer un module premium de fidélité intitulé « CAPSA Rewards » pour CAPSA Paradise Land.
-
-OBJECTIF
-
-Encourager les visiteurs à revenir régulièrement en récompensant leurs réservations, leurs commandes et leur participation aux événements.
-
-Le module doit être intégré à l'espace client « Mon CAPSA » et disposer également d'une interface d'administration.
-
-STYLE
-
-- Design premium
-- Couleurs : Vert émeraude, Or, Ivoire
-- Icônes élégantes
-- Animations discrètes
-- Responsive (desktop, tablette et mobile)
-
-------------------------------------------------
-
-TABLEAU DE BORD FIDÉLITÉ
-
-Afficher :
-
-• Solde de points actuel
-• Niveau du membre
-• Barre de progression vers le niveau suivant
-• Récompenses disponibles
-• Historique des points gagnés et utilisés
-
-Exemple :
-
-⭐ 850 Points
-
-Niveau Gold
-
-Plus que 150 points pour atteindre Platinum
-
-------------------------------------------------
-
-NIVEAUX DE FIDÉLITÉ
-
-Créer plusieurs niveaux :
-
-🥉 Bronze
-
-🥈 Silver
-
-🥇 Gold
-
-💎 Platinum
-
-Chaque niveau offre davantage d'avantages.
-
-Prévoir une administration permettant de modifier les seuils.
-
-------------------------------------------------
-
-COMMENT GAGNER DES POINTS
-
-Prévoir des règles configurables :
-
-Réservation d'une table
-
-Participation à un événement
-
-Commande au restaurant
-
-Organisation d'un mariage
-
-Anniversaire
-
-Parrainage
-
-Avis Google
-
-Avis Facebook
-
-Partager un événement
-
-Bonus anniversaire
-
-Bonus première visite
-
-Chaque règle doit être modifiable.
-
-------------------------------------------------
-
-RÉCOMPENSES
-
-Créer plusieurs récompenses.
-
-Exemples :
-
-Boisson offerte
-
-Dessert offert
-
-Réduction de 10 %
-
-Réduction de 20 %
-
-Accès VIP
-
-Invitation à une soirée
-
-Priorité de réservation
-
-Prévoir une interface pour créer de nouvelles récompenses.
-
-------------------------------------------------
-
-HISTORIQUE
-
-Afficher toutes les opérations :
-
-Date
-
-Action
-
-Points gagnés
-
-Points utilisés
-
-Solde
-
-Possibilité de filtrer.
-
-------------------------------------------------
-
-QR CODE
-
-Prévoir une carte de fidélité numérique.
-
-Afficher :
-
-Nom
-
-Numéro de membre
-
-QR Code
-
-Niveau
-
-Points
-
-Le QR Code sera utilisé plus tard pour identifier rapidement le client.
-
-------------------------------------------------
-
-ADMINISTRATION
-
-Créer un module permettant :
-
-Créer des récompenses
-
-Créer des niveaux
-
-Modifier les seuils
-
-Modifier les règles
-
-Ajouter ou retirer des points
-
-Consulter les statistiques
-
-Exporter les membres
-
-------------------------------------------------
-
-STATISTIQUES
-
-Afficher :
-
-Nombre d'adhérents
-
-Nombre de points distribués
-
-Récompenses les plus utilisées
-
-Clients les plus fidèles
-
-Progression mensuelle
-
-Graphiques interactifs.
-
-------------------------------------------------
-
-ÉVOLUTIVITÉ
-
-Prévoir une connexion future avec WordPress Headless ou Supabase.
-
-Utiliser pour l'instant des données simulées.
-
-------------------------------------------------
-
-SEO
-
-Prévoir une URL :
-
-/mon-compte/fidelite
-
-Créer une interface entièrement responsive et accessible.
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio de Sana Rachdi, Conceptrice d'Applications No-Code spécialisée en automatisation, IA, UX/UI, WordPress et SEO.">
+  <meta name="keywords" content="Sana Rachdi, Product Builder, No-Code, Bubble, Make, n8n, IA, Figma, WordPress, SEO, Perpignan">
+  <meta name="author" content="Sana Rachdi">
+  <meta property="og:title" content="Sana Rachdi | Product Builder No-Code & IA">
+  <meta property="og:description" content="Je transforme des besoins métier en applications, automatisations et expériences digitales utiles.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0b1020">
+  <title>Sana Rachdi | Product Builder No-Code & IA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Retour en haut">
+      <span class="brand-mark">SR</span>
+      <span>Sana Rachdi</span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="site-nav" aria-label="Navigation principale">
+      <a href="#about">À propos</a>
+      <a href="#skills">Compétences</a>
+      <a href="#projects">Projets</a>
+      <a href="#process">Méthode</a>
+      <a href="#experience">Parcours</a>
+      <a class="nav-cta" href="#contact">Me contacter</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section" id="about">
+      <div class="hero-copy reveal">
+        <div class="availability"><span></span> Recherche d'un stage de 2 mois · Octobre à décembre 2026</div>
+        <p class="eyebrow">Product Builder · No-Code · IA · Automatisation</p>
+        <h1>Je transforme des besoins métier en <em>solutions digitales utiles.</em></h1>
+        <p class="hero-text">Conceptrice d'Applications No-Code en formation, je combine UX/UI, automatisation, IA, bases de données, développement web et SEO pour créer des outils simples, fiables et orientés utilisateur.</p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#projects">Voir mes projets</a>
+          <a class="btn secondary" href="mailto:rachdinissan@gmail.com">Me contacter</a>
+        </div>
+
+        <div class="hero-meta">
+          <span>📍 Perpignan · Toulouse · Montpellier</span>
+          <span>💻 Télétravail possible</span>
+          <span>🚗 Permis B</span>
+        </div>
+      </div>
+
+      <aside class="profile-card reveal" aria-label="Résumé du profil">
+        <div class="profile-glow"></div>
+        <div class="profile-head">
+          <div class="avatar">SR</div>
+          <div>
+            <h2>Sana Rachdi</h2>
+            <p>Conceptrice d'Applications No-Code</p>
+          </div>
+        </div>
+        <div class="profile-stack">
+          <span>Bubble</span><span>Make</span><span>n8n</span><span>Figma</span><span>SQL</span><span>OpenAI</span>
+        </div>
+        <div class="profile-value">
+          <p>Ce que j'apporte</p>
+          <ul>
+            <li>Analyse des besoins et vision produit</li>
+            <li>Applications et outils internes</li>
+            <li>Automatisation des processus métier</li>
+            <li>Interfaces UX/UI claires et responsives</li>
+          </ul>
+        </div>
+        <a class="profile-link" href="https://www.linkedin.com/in/sana-rachdi-876b81151" target="_blank" rel="noreferrer">Voir mon profil LinkedIn ↗</a>
+      </aside>
+    </section>
+
+    <section class="stats section compact" aria-label="Chiffres clés">
+      <article><strong>15+</strong><span>sites WordPress réalisés</span></article>
+      <article><strong>6+</strong><span>projets et prototypes</span></article>
+      <article><strong>Bac+5</strong><span>Master Informatique</span></article>
+      <article><strong>360°</strong><span>Produit, tech, SEO et IA</span></article>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Expertise</p>
+        <h2>Une approche complète, du besoin au produit.</h2>
+        <p>Je peux intervenir sur l'analyse, la conception, l'interface, les données, l'automatisation, le développement et l'optimisation.</p>
+      </div>
+
+      <div class="skills-grid">
+        <article class="skill-card reveal"><span class="skill-icon">01</span><h3>No-Code & Automatisation</h3><div class="chips"><span>Bubble</span><span>Make</span><span>n8n</span><span>Airtable</span><span>Notion</span><span>Google Sheets</span></div></article>
+        <article class="skill-card reveal"><span class="skill-icon">02</span><h3>IA & Prompt Engineering</h3><div class="chips"><span>ChatGPT</span><span>OpenAI</span><span>Agents IA</span><span>Prompt Engineering</span></div></article>
+        <article class="skill-card reveal"><span class="skill-icon">03</span><h3>UX/UI & Produit</h3><div class="chips"><span>Figma</span><span>Wireframes</span><span>Prototypage</span><span>Auto Layout</span><span>Design System</span><span>User Stories</span></div></article>
+        <article class="skill-card reveal"><span class="skill-icon">04</span><h3>Développement & Data</h3><div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>SQL</span><span>MySQL</span><span>DuckDB</span></div></article>
+        <article class="skill-card reveal"><span class="skill-icon">05</span><h3>SEO, CMS & Analytics</h3><div class="chips"><span>WordPress</span><span>Elementor</span><span>SEO technique</span><span>SEO On-page</span><span>GEO</span><span>GA4</span><span>Search Console</span></div></article>
+        <article class="skill-card reveal"><span class="skill-icon">06</span><h3>Gestion de projet</h3><div class="chips"><span>Agile</span><span>UML</span><span>Merise</span><span>Cahier des charges</span><span>Recueil des besoins</span><span>CRM</span></div></article>
+      </div>
+    </section>
+
+    <section class="section projects-section" id="projects">
+      <div class="section-heading row reveal">
+        <div><p class="eyebrow">Proof of work</p><h2>Des projets concrets, orientés impact.</h2></div>
+        <div class="filters" aria-label="Filtres de projets">
+          <button class="filter active" data-filter="all" type="button">Tous</button>
+          <button class="filter" data-filter="nocode" type="button">No-Code</button>
+          <button class="filter" data-filter="automation" type="button">Automatisation</button>
+          <button class="filter" data-filter="ia" type="button">IA</button>
+          <button class="filter" data-filter="web" type="button">Web</button>
+        </div>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card featured reveal" data-category="web nocode">
+          <div class="project-visual capsa"><span>CAPSA Paradise Land</span></div>
+          <div class="project-content"><div class="chips"><span>UX/UI</span><span>SEO</span><span>Menu digital</span></div><h3>CAPSA Paradise Land</h3><p>Conception d'une expérience web pour un parc de loisirs et espace événementiel : architecture, contenus, maquettes, SEO local, menu interactif et automatisations marketing.</p><div class="project-result"><strong>Objectif</strong><span>Centraliser l'offre, renforcer la visibilité locale et faciliter la réservation.</span></div><button class="project-more" data-project="capsa" type="button">Découvrir l'étude de cas</button></div>
+        </article>
+
+        <article class="project-card reveal" data-category="automation">
+          <div class="project-visual image"><img src="images/rx-contracts-1.png" alt="Dashboard RX Contracts" loading="lazy"></div>
+          <div class="project-content"><div class="chips"><span>Python</span><span>Django</span><span>Workflows</span></div><h3>RX Contracts</h3><p>Plateforme interne de gestion des contrats, prestataires, litiges, documents et échéances avec alertes automatiques.</p><button class="project-more" data-project="rx-contracts" type="button">Voir le détail</button></div>
+        </article>
+
+        <article class="project-card reveal" data-category="ia automation nocode">
+          <div class="project-visual image"><img src="images/assistant-ia-automation-1.png" alt="Workflow Assistant IA" loading="lazy"></div>
+          <div class="project-content"><div class="chips"><span>Make</span><span>OpenAI</span><span>Airtable</span></div><h3>Assistant IA de triage</h3><p>Analyse, classification et structuration des demandes entrantes avec création automatique d'un brouillon de réponse.</p><button class="project-more" data-project="assistant-ia" type="button">Voir le détail</button></div>
+        </article>
+
+        <article class="project-card reveal" data-category="ia web automation">
+          <div class="project-visual image"><img src="images/agent-ia-seo.png" alt="Agent IA SEO WordPress" loading="lazy"></div>
+          <div class="project-content"><div class="chips"><span>IA</span><span>SEO</span><span>WordPress</span></div><h3>Agent IA SEO WordPress</h3><p>Prototype capable d'analyser une page, détecter les optimisations et générer des recommandations actionnables.</p><button class="project-more" data-project="agent-seo" type="button">Voir le détail</button></div>
+        </article>
+
+        <article class="project-card reveal" data-category="automation">
+          <div class="project-visual image"><img src="images/rib-generator.png" alt="Application RIB Generator" loading="lazy"></div>
+          <div class="project-content"><div class="chips"><span>Python</span><span>Desktop</span><span>Automatisation</span></div><h3>RIB Generator</h3><p>Application desktop générant automatiquement des fichiers comptables TXT conformes avec contrôle des erreurs.</p><button class="project-more" data-project="rib-generator" type="button">Voir le détail</button></div>
+        </article>
+
+        <article class="project-card reveal" data-category="nocode web">
+          <div class="project-visual airbnb"><span>Projet Airbnb No-Code</span></div>
+          <div class="project-content"><div class="chips"><span>Bubble</span><span>UML</span><span>Figma</span></div><h3>Application de réservation</h3><p>Conception d'une application type Airbnb : besoins, cas d'utilisation, base de données, parcours utilisateur et interfaces.</p><button class="project-more" data-project="airbnb" type="button">Voir le détail</button></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="section-heading reveal"><p class="eyebrow">Ma méthode</p><h2>Un processus clair pour construire juste.</h2></div>
+      <div class="process-grid">
+        <article class="reveal"><span>01</span><h3>Comprendre</h3><p>Recueil du besoin, contraintes, utilisateurs, objectifs et indicateurs de réussite.</p></article>
+        <article class="reveal"><span>02</span><h3>Structurer</h3><p>User stories, parcours, règles métier, données, UML/Merise et priorisation du MVP.</p></article>
+        <article class="reveal"><span>03</span><h3>Prototyper</h3><p>Wireframes, maquettes Figma, composants, tests de compréhension et ajustements.</p></article>
+        <article class="reveal"><span>04</span><h3>Construire</h3><p>Développement No-Code ou web, intégrations, workflows, IA et automatisations.</p></article>
+        <article class="reveal"><span>05</span><h3>Tester</h3><p>Scénarios fonctionnels, responsive, accessibilité, gestion des erreurs et qualité.</p></article>
+        <article class="reveal"><span>06</span><h3>Optimiser</h3><p>Mesure, SEO, analytics, documentation et amélioration continue du produit.</p></article>
+      </div>
+    </section>
+
+    <section class="section experience-section" id="experience">
+      <div class="section-heading reveal"><p class="eyebrow">Parcours</p><h2>Une expérience digitale devenue expertise produit.</h2></div>
+      <div class="timeline">
+        <article class="timeline-item reveal"><div class="timeline-date">2026 — 2027</div><div><h3>Conceptrice d'Applications No-Code</h3><p class="muted">L'IDEM · Formation RNCP niveau 6</p><p>Conception produit, Bubble, automatisation, IA, UX/UI, bases de données, UML, gestion de projet et développement web.</p></div></article>
+        <article class="timeline-item reveal"><div class="timeline-date">Depuis 2026</div><div><h3>Product Builder & Automatisation IA</h3><p class="muted">Projets personnels et freelance</p><p>Conception de workflows Make et n8n, agents IA, outils internes, prototypes et tableaux de bord.</p></div></article>
+        <article class="timeline-item reveal"><div class="timeline-date">2025</div><div><h3>Chargée Marketing Digital & SEO</h3><p class="muted">CCP</p><p>Contenus, emailing, automatisation de tâches marketing, optimisation SEO et suivi de visibilité digitale.</p></div></article>
+        <article class="timeline-item reveal"><div class="timeline-date">2022 — 2025</div><div><h3>Développeuse WordPress & Marketing Digital</h3><p class="muted">Altra Systems</p><p>Création et maintenance de sites, SEO, analytics, accompagnement client et formation des équipes.</p></div></article>
+        <article class="timeline-item reveal"><div class="timeline-date">2020 — 2022</div><div><h3>Master 2 Informatique</h3><p class="muted">Informatique distribuée</p><p>Architecture logicielle, développement, données et systèmes distribués.</p></div></article>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="contact-card reveal">
+        <div><p class="eyebrow">Parlons de votre projet</p><h2>Je recherche une équipe où apprendre, contribuer et construire.</h2><p>Disponible pour un stage de 2 mois à partir d'octobre 2026, à Perpignan, Montpellier, Toulouse ou à distance.</p></div>
+        <div class="contact-actions"><a class="btn light" href="mailto:rachdinissan@gmail.com">rachdinissan@gmail.com</a><a class="btn ghost" href="tel:+33743638137">07 43 63 81 37</a><a class="btn ghost" href="https://www.linkedin.com/in/sana-rachdi-876b81151" target="_blank" rel="noreferrer">LinkedIn ↗</a><a class="btn ghost" href="https://github.com/SanaRash" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>© <span id="year"></span> Sana Rachdi</span><span>Conçu avec HTML, CSS & JavaScript</span></footer>
+
+  <div class="modal" id="project-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel">
+      <button class="modal-close" type="button" data-close-modal aria-label="Fermer">×</button>
+      <div class="modal-hero" id="modal-visual"></div>
+      <div class="modal-content">
+        <p class="eyebrow" id="modal-category"></p>
+        <h2 id="modal-title"></h2>
+        <p class="modal-description" id="modal-description"></p>
+        <div class="modal-sections"><section><h3>Problématique</h3><p id="modal-problem"></p></section><section><h3>Solution</h3><p id="modal-solution"></p></section><section><h3>Impact</h3><p id="modal-impact"></p></section></div>
+        <div class="chips" id="modal-tools"></div>
+        <div class="modal-gallery" id="modal-gallery"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
